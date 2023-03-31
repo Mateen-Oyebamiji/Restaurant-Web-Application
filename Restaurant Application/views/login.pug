@@ -1,0 +1,16 @@
+html
+  head
+    title Login page
+  body
+    include ../partials/header
+    script(src='login.js')
+    br
+    br
+    | Username:
+    input#username(type='textbox' size='40')
+    br
+    | Password:
+    input#password(type='textbox' size='35')
+    br
+    br
+    button(type='button' onclick='login()') Login

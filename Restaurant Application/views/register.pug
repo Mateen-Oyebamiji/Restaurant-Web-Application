@@ -1,0 +1,17 @@
+html
+  head
+    title Registry 
+  body
+    include ../partials/header
+    h1 Sign up for your Restaurant Ordering service
+    script(src='register.js')
+    br
+    br
+    | Username:
+    input#username(type='textbox' size='40')
+    br
+    | Password:
+    input#password(type='textbox' size='35')
+    br
+    br
+    button(type='button' onclick='register()') Register

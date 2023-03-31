@@ -1,0 +1,15 @@
+html
+  head
+    meta(charset = "UTF-8")
+    title User Profile page
+  body
+    if ses.loggedin 
+        include ../partials/header2
+    else 
+        include ../partials/header
+
+    h1="Profile for "+res.username+"!"
+    p Orders:
+        for order in res.order 
+            li 
+                a(href=`/orders/${order.orderId}`)=order.orderId

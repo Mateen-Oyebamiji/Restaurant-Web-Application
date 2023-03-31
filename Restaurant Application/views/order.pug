@@ -1,0 +1,21 @@
+html
+  head
+    meta(charset = "UTF-8")
+    title Order page
+  body
+    if ses.loggedin 
+        include ../partials/header2
+    else 
+        include ../partials/header
+    h1="Orders #"+data.orderId
+    h2="By "+data.username
+    p= "Restaurant Name: "+data.restaurantName
+    p Order contents:
+    for item in data.order 
+        ul
+        li=item.name+" x "+item.quantity
+    br
+    p="Subtotal: "+data.subtotal.toFixed(2)
+    p="Total: "+data.total.toFixed(2)
+    p="Tax: "+data.tax.toFixed(2)
+    p="Delivery Fee:"+data.fee.toFixed(2)

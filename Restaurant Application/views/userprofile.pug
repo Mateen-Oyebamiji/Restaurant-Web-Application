@@ -1,0 +1,38 @@
+html
+  head
+    meta(charset = "UTF-8")
+    title User Profile page
+  body
+    if ses.loggedin 
+        include ../partials/header2
+    else 
+        include ../partials/header
+
+    h1="User Profile for "+res.username+"!"
+    script!= `const res = ${JSON.stringify(res)};`
+    script(src='privacy.js')
+
+    p Privacy:
+    if res.privacy == true
+        input#on(type='radio' name="privacy" checked)
+        | On
+        br
+        input#off(type='radio' name="privacy" )
+        | Off 
+        br
+        br
+    else 
+        input#on(type='radio' name="privacy")
+        | On
+        br
+        input#off(type='radio' name="privacy" checked)
+        | Off 
+        br
+        br
+    button(type='button' onclick='save()') Save
+
+    p Orders:
+    for order in res.order 
+        li 
+            a(href=`/orders/${order.orderId}`)=order.orderId
+        //-Order links

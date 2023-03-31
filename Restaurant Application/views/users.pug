@@ -1,0 +1,14 @@
+html
+  head
+    meta(charset = "UTF-8")
+    title Users page
+  body
+    if ses.loggedin 
+        include ../partials/header2
+    else 
+        include ../partials/header
+    ul 
+        for user in res
+            li
+                a(href=`/users/${user._id}`)=user.username
+
